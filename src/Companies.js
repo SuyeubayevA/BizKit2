@@ -7,7 +7,7 @@ const Companies = (props) => {
 
     return (
         <WrapPage>
-            <div style={{display: 'flex'}}>
+            <div style={{display: 'flex', width: '70%'}}>
                 <CompanyList/>
             </div>
         </WrapPage>

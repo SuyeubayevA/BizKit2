@@ -4,19 +4,20 @@ import './App.css';
 
 import Home from "./Home";
 import Company from "./Companies";
+import NavbarReact from "./navigation/navigationPanel";
 
 
 function App() {
 
-  // const handleLogout = () => {
-  //   sessionStorage.removeItem('tokenData'); 
-  // }
+  const handleLogout = () => {
+    sessionStorage.removeItem('tokenRefresh'); 
+  }
 
   return (
     <div className="App">
       <BrowserRouter>
           <React.Fragment>
-          {/* <NavbarReact handleLogout={this.handleLogout}/> */}
+          <NavbarReact handleLogout={handleLogout}/>
             <Switch>
               <Route 
                 exact 

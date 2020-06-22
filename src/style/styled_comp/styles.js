@@ -2,14 +2,14 @@ import styled from 'styled-components';
 import trash from '../icons/trash.svg'
 
 export const WrapPage = styled.div`
-    margin-top: 10px;
     padding: 25px;
-    background: transparent;
-    width: 90%;
+    padding-top: 100px;
+    background: #E5E5E5;
+    height: fill-available;
     display: flex;
     flex-direction: column;
-    align-items: space-around;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: middle;
     border-radius: 10px;
     border-color: gray;
 `;
