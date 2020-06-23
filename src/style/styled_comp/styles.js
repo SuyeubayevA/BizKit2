@@ -10,7 +10,6 @@ export const WrapPage = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: middle;
-    border-radius: 10px;
     border-color: gray;
 `;
 

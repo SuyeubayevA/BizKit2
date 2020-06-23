@@ -89,9 +89,14 @@ const NavbarReact = (props) => {
           console.log("registration error", error);
           alert("Произошла ошибка!", error.response.status);
       });
-      setTimeout(()=>{
-          props.getList();
-      },1500)
+      if(props.getList){
+          setTimeout(()=>{
+            props.getList();
+        },1500)
+      } else {
+        window.location.replace("/cabinetcompany"); 
+      }
+      
       handleClose();
       
       event.preventDefault();

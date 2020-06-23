@@ -9,18 +9,27 @@ import NavbarVert from "./navigation/verticalNavigation";
 
 
 function App() {
-  const [client, setClient] = useState({});
+  const [client, setClient] = useState(null);
+  const [showSidebar, setShowSidebar] = useState(false);
   const handleLogout = () => {
-    sessionStorage.removeItem('tokenRefresh'); 
+    sessionStorage.removeItem('tokenRefresh');
+    sessionStorage.removeItem('tokenAccess');
+    window.location.replace("/");
   };
   const returnList = () => {
     window.location.replace("/cabinetcompany"); 
   }
 
+  const editClient = (client) => {
+    localStorage.setItem('company', JSON.stringify(client));
+    setClient(client)
+  }
+
+  console.log('APP', client)
   return (
     <div className="App">
       <BrowserRouter>
-      <NavbarVert handleLogout={handleLogout} returnList={returnList}/>
+      {showSidebar && <NavbarVert handleLogout={handleLogout} returnList={returnList}/>}
           <React.Fragment>
           
             <Switch>
@@ -28,7 +37,9 @@ function App() {
                 exact 
                 path={"/"} 
                 render={props => (
-                  <Home />
+                  <Home {...props}
+                    setShowSidebar={setShowSidebar}
+                  />
                 )} 
               />
               <Route 
@@ -36,7 +47,8 @@ function App() {
                 path={"/cabinetcompany"} 
                 render={props => (
                   <Companies {...props} 
-                  setClient={setClient}
+                    setClient={editClient}
+                    setShowSidebar={setShowSidebar}
                   />
                 )} 
               />
@@ -46,6 +58,7 @@ function App() {
                 render={props => (
                   <CompanyEdit {...props}
                     client={client}
+                    setShowSidebar={setShowSidebar}
                   />
                 )} 
               />

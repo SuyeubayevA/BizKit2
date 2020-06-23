@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import {WrapPaper, Input, Button} from './styles';
+import {Title2, Input} from './styles';
+import Button from '@material-ui/core/Button';
 import {url} from '../serverUrl';
+import Paper from '@material-ui/core/Paper';
 
 class Login extends Component {
     constructor(props){
@@ -59,9 +61,15 @@ class Login extends Component {
 
     render() {
         return (
-            <WrapPaper>
+            <Paper 
+                elevation={3}
+                style={{height: '400px', width:'400px', padding:'34px', position: 'relative'}}>
                 <form onSubmit={this.handleSubmit} className="regForm">
+                    <Title2>
+                        Авторизация
+                    </Title2>
                     <Input 
+                        style={{marginTop:'100px'}}
                         type="text" 
                         name="email" 
                         placeholder="Email" 
@@ -78,14 +86,16 @@ class Login extends Component {
                         required 
                     />
                     <Button 
+                        style={{marginTop:'100px'}}
                         type='submit'
                         variant="contained" 
                         color="primary"
+                        size="large"
                     >
                         Войти
                     </Button>
                 </form> 
-            </WrapPaper>
+            </Paper>
         );
     }
 }

@@ -37,7 +37,7 @@ const CompanyList = (props) => {
 
     const [page, setPage] = React.useState(2);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
-
+  
     const editCompany = (company) => {
         setClient(company);
         window.location.replace("/editcompany");
@@ -80,7 +80,7 @@ const CompanyList = (props) => {
         setPage(newPage);
       };
     
-      const handleChangeRowsPerPage = (event) => {
+    const handleChangeRowsPerPage = (event) => {
         setRowsPerPage(parseInt(event.target.value, 10));
         setPage(0);
       };
@@ -92,10 +92,10 @@ const CompanyList = (props) => {
     return (
         <TableContainer component={Paper} className={classes.tableWrapper}>
             <div style={{display:'flex', margin: '28px 31px', justifyContent: 'space-around'}}>
-                <TextField id="outlined-basic" label="Наименование компании" variant="outlined" />
-                <TextField id="outlined-basic" label="Тип юр.лица" variant="outlined" />
-                <TextField id="outlined-basic" label="Регион" variant="outlined" />
-                <TextField id="outlined-basic" label="Город" variant="outlined" />
+                <TextField id="company-name" label="Наименование компании" variant="outlined" />
+                <TextField id="type-of" label="Тип юр.лица" variant="outlined" />
+                <TextField id="region" label="Регион" variant="outlined" />
+                <TextField id="city" label="Город" variant="outlined" />
             </div>
             <Table className={classes.table} aria-label="simple table">
                 <TableHead>
@@ -104,8 +104,8 @@ const CompanyList = (props) => {
                     <TableCell align="right">{state.columns[1].registered_type}</TableCell>
                     <TableCell align="right">{state.columns[2].region}</TableCell>
                     <TableCell align="right">{state.columns[3].city}</TableCell>
-                    <TableCell align="right"> </TableCell>  {/*  EDIT  */}
-                    <TableCell align="right"> </TableCell>  {/*  DELETE  */}
+                    <TableCell align="right">'' </TableCell>  {/*  EDIT  */}
+                    <TableCell align="right"> ''</TableCell>  {/*  DELETE  */}
 
                 </TableRow>
                 </TableHead>

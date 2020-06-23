@@ -35,27 +35,11 @@ export const NavVert = styled.nav`
     flex-direction: column;
     flex-flow: row nowrap;
     justify-content: space-evenly;
-    align-items: center;
+    align-items: start;
     background: #F8F8FF;
     color: #90d2c6;
     width: 250px;
     height: 100%;
+    padding-top: 150px;
     position: absolute;
-    
-    .nav-links{
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: space-between;
-        align-items: center;
-        width: 65vw;
-        list-style: none;
-    }
-    .link{
-        color: #90d2c6;
-        font-size: 2.5vh;
-        text-decoration: none;
-        text-shadow: 1px 1px 1px #D3D3D3;
-    }
 `;

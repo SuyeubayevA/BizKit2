@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import CompanyList from './components/CompanyList';
 import { WrapPage } from './style/styled_comp/styles';
 import NavbarReact from "./navigation/navigationPanel";
@@ -16,7 +16,7 @@ const Companies = (props) => {
         data: []
       });
 
-      const getList = async ()=>{
+    const getList = async ()=>{
         const tokenAccess = sessionStorage.tokenAccess;
         fetch(`${url}/companies/`, {
             headers: {
@@ -25,7 +25,7 @@ const Companies = (props) => {
           })
         .then(res => { return res.json();})
         .then(
-            data => {console.log(data);
+            data => {
                 setState({...state, ['data']: data.results});
             }
         );
@@ -34,6 +34,10 @@ const Companies = (props) => {
     const handleLogout = () => {
         sessionStorage.removeItem('tokenRefresh'); 
       }
+    
+    useEffect(()=>{
+        props.setShowSidebar(true);
+    },[])
 
     return (
         <React.Fragment>
