@@ -225,3 +225,16 @@ export const Logo = styled.input`
     margin: 15px;
     padding: 10px;
 `;
+
+export const Title1 = styled.div`
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    /* identical to box height */
+    letter-spacing: 0.15px;
+    color: #3D5170;
+    mix-blend-mode: normal;
+    opacity: 0.87;
+    `;

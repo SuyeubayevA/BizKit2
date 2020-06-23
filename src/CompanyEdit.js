@@ -1,11 +1,11 @@
 import React from 'react';
+import BankData from './components/BankData';
 import CompanyList from './components/CompanyList';
 import { WrapPage } from './style/styled_comp/styles';
 import NavbarReact from "./navigation/navigationPanel";
 import {url} from './serverUrl';
 
-const Companies = (props) => {
-    const {setClient} = props;
+const CompanyEdit = (props) => {
     const [state, setState] = React.useState({
         columns: [
           { name: 'Наименование компании' },
@@ -34,18 +34,17 @@ const Companies = (props) => {
     const handleLogout = () => {
         sessionStorage.removeItem('tokenRefresh'); 
       }
-
+      console.log(props)
     return (
         <React.Fragment>
-            <NavbarReact getList={getList} title={"Клиенты"}/>
+            <NavbarReact getList={getList} title={"Наименование компании"}/>
             <WrapPage style={{marginLeft:'250px'}}>
-                
                 <div style={{display: 'flex', width: '70%'}}>
-                    <CompanyList getList={getList} state={state} setClient={setClient}/>
+                    <CompanyList getList={getList} state={state}/>
                 </div>
             </WrapPage>
         </React.Fragment>
     )
 }
 
-export default Companies;
+export default CompanyEdit;
